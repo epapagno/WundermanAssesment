@@ -72,5 +72,30 @@ namespace EPA.Distributed.REST.Controllers
 
             return Ok();
         }
+
+        // GET: api/DataJob/BackgroundProcessResults
+        [HttpGet("{DataJobStatus}")]
+        public async Task<IActionResult> BackgroundProcessResults([FromQuery] Guid id)
+        {
+            var response = await _dataJobServiceApp.GetBackgroundProcessResults(id);
+            return Ok(response);
+        }
+
+        // GET: api/DataJob/BackgroundProcessStatus
+        [HttpGet("{id}")]
+        public async Task<IActionResult> BackgroundProcessStatus([FromQuery] Guid id)
+        {
+            var response = await _dataJobServiceApp.GetBackgroundProcessStatus(id);
+            return Ok(response);
+        }
+
+        // PUT: api/DataJob/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> StartBackgroundProcess(Guid id)
+        {
+            var response = await _dataJobServiceApp.StartBackgroundProcess(id);
+
+            return Ok(response);
+        }
     }
 }
