@@ -89,8 +89,8 @@ namespace EPA.Distributed.REST.Controllers
             return Ok(response);
         }
 
-        // PUT: api/DataJob/5
-        [HttpPut("{id}")]
+        // PATCH: api/DataJob/5
+        [HttpPatch("{id}")]
         public async Task<IActionResult> StartBackgroundProcess(Guid id)
         {
             var response = await _dataJobServiceApp.StartBackgroundProcess(id);
